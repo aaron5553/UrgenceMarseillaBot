@@ -16,7 +16,7 @@ client.once('ready', () => {
 client.on('messageCreate', async message => {
   if (message.author.bot) return;
 
-  // Commande pour config serveur
+  // Commande setup
   if (message.content === "!setup") {
     const guild = message.guild;
 
@@ -64,4 +64,8 @@ client.on('messageCreate', async message => {
     const args = message.content.split(" ");
     const id = args[1];
     if (!id) return message.reply("❌ Donne un ID FiveM");
-    message.channel.send(`📋 Nouvelle demande whitelist : ID ${
+    message.channel.send(`📋 Nouvelle demande whitelist : ID ${id}`);
+  }
+});
+
+client.login(process.env.TOKEN);
